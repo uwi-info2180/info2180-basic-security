@@ -1,8 +1,6 @@
 <?php
 session_start();
 setlocale(LC_MONETARY, 'en_US.UTF-8');
-print $_SESSION['csrf_token'] . '<br>';
-print $_POST['csrf_token'];
 
 $servername = getenv('IP');
 $username = getenv('C9_USER');
