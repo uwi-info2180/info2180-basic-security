@@ -1,5 +1,7 @@
 # Notes
 
+
+
 ## XSS examples
 <script>alert("hello world");</script>
 <script>alert(document.cookie);</script>

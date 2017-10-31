@@ -8,8 +8,10 @@
     <body>
         <div class="container">
             <h1 class="page-header">SQL Injection Example</h1>
-            <p>For this example, we will try to do an SQL Injection attack by entering the following into our username field:</p>
-            <code>ylynfatt'; DROP TABLE users;--</code>
+            <div class="alert alert-info">
+                <p>For this example, we will try to do an SQL Injection attack by entering the following into our username field:</p>
+                <code>ylynfatt'; DROP TABLE users;--</code>
+            </div>
             <form action="getuser.php" method="post">
                 <div class="form-group">
                     <label for="username">Enter the user's username</label>

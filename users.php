@@ -30,12 +30,13 @@ try {
                 <tbody>
                     <?php foreach ($results as $user): ?>
                     <tr>
-                        <td><?= $user['username']; ?></td>
+                        <td><?= $user['username']; // it's always good practice to at least use strip_tags(), htmlentities() or htmlspecialchars() to help against XSS attacks ?></td>
                         <td><a href="mailto:<?= $user['email']; ?>"><?= $user['email']; ?></a></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <a href="xss.php" class="btn btn-primary">Go back to form</a>
         </div>
     </body>
 </html>

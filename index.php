@@ -1,29 +1,19 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Example of XSS</title>
+        <title>Example Security Vulnerabilities</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
     </head>
 <body>
     <div class="container">
-        <h1 class="page-header">Add User</h1>
-        <form method="post" action="insert.php">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" class="form-control" />
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="text" id="password" name="password" class="form-control" />
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" class="form-control" />
-            </div>
-            <input type="submit" value="Submit" class="btn btn-success "/>
-        </form>
+        <h1 class="page-header">Example Security Vulnerabilities</h1>
+        <p>Here are some trivial examples of Security Vulnerabilities on the web.</p>
+        <ul>
+            <li><a href="process.php?username=<script>alert('youve been hacked')</script>">XSS Example 1</a></li>
+            <li><a href="xss.php">XSS Example 2</a></li>
+            <li><a href="csrf.php">CSRF Example</a></li>
+            <li><a href="sql-injection.php">SQL Injection Example</a></li>
+        </ul>
     </div>
 </body>
 </html>
