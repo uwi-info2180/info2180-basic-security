@@ -1,4 +1,7 @@
 -- Sample Schema
+DROP DATABASE IF EXISTS security_demo;
+CREATE DATABASE security_demo;
+USE security_demo;
 
 -- Users
 DROP TABLE IF EXISTS users;
