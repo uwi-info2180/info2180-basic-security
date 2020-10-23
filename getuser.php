@@ -1,13 +1,13 @@
 <?php
-$servername = getenv('IP');
-$dbusername = getenv('C9_USER');
-$dbpassword = "";
-$database = "c9";
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "root";
+$database = "security_demo";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$database", $dbusername, $dbpassword);
     
-    // We should also probably use filter_input() to validate/sanitize this 
+    // We should also probably use filter_input() to validate/sanitize this
     // input just to be extra safe.
     $username = $_POST['username'];
     
@@ -24,7 +24,7 @@ try {
     // $stmt->bindParam(':username', $_POST['username'], PDO::PARAM_STR);
     // $stmt->execute();
     // $user = $stmt->fetch(PDO::FETCH_ASSOC);
-} catch(Exception $e) {
+} catch (Exception $e) {
     echo $e->getMessage();
 }
 ?>

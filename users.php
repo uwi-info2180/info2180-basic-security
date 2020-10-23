@@ -1,12 +1,13 @@
 <?php
-$servername = getenv('IP');
-$username = getenv('C9_USER');
-$password = "";
-$database = "c9";
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "root";
+$database = "security_demo";
+
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$database", $username, $password);
+    $conn = new PDO("mysql:host=$host;dbname=$database", $dbusername, $dbpassword);
     $results = $conn->query("SELECT * FROM users");
-} catch(Exception $e) {
+} catch (Exception $e) {
     echo $e->getMessage();
 }
 ?>

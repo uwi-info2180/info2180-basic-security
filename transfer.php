@@ -2,10 +2,10 @@
 session_start();
 setlocale(LC_MONETARY, 'en_US.UTF-8');
 
-$servername = getenv('IP');
-$username = getenv('C9_USER');
-$password = "";
-$database = "c9";
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "root";
+$database = "security_demo";
 
 // We should also probably use filter_input() to validate/sanitize this 
 // input just to be extra safe.
@@ -19,7 +19,7 @@ $amount = $_GET['amount'];
 // $amount = $_POST['amount'];
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$database", $username, $password);
+    $conn = new PDO("mysql:host=$host;dbname=$database", $dbusername, $dbpassword);
     
     $accountFrom = $conn->query("SELECT * FROM bank_accounts WHERE account_number = '{$transferFrom}'")->fetch(PDO::FETCH_ASSOC);
     $accountTo = $conn->query("SELECT * FROM bank_accounts WHERE account_number = '{$transferTo}'")->fetch(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@ try {
 
     $conn->query("UPDATE bank_accounts SET balance = {$accountFromBalance}, updated_at = SYSDATE() WHERE account_number = '{$transferFrom}'");
     $conn->query("UPDATE bank_accounts SET balance = {$accountToBalance}, updated_at = SYSDATE() WHERE account_number = '{$transferTo}'");
-} catch(Exception $e) {
+} catch (Exception $e) {
     echo $e->getMessage();
 }
 

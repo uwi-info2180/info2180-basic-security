@@ -1,11 +1,11 @@
 <?php
-$servername = getenv('IP');
-$dbusername = getenv('C9_USER');
-$dbpassword = "";
-$database = "c9";
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "root";
+$database = "security_demo";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$database", $dbusername, $dbpassword);
+    $conn = new PDO("mysql:host=$host;dbname=$database", $dbusername, $dbpassword);
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -20,7 +20,7 @@ try {
     
     $sql = "INSERT INTO users (username, password, email, created_at) VALUES('{$username}', '{$password}', '{$email}', '{$createdAt}')";
     $conn->exec($sql);
-} catch(Exception $e) {
+} catch (Exception $e) {
     echo $e->getMessage();
 }
 
