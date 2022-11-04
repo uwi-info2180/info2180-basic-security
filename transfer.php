@@ -1,6 +1,6 @@
 <?php
 session_start();
-setlocale(LC_MONETARY, 'en_US.UTF-8');
+$format = numfmt_create('en_JM', NumberFormatter::CURRENCY );
 
 $host = "localhost";
 $dbusername = "root";
@@ -62,7 +62,7 @@ try {
     <body>
         <div class="container">
             <h1 class="page-header">Transfer Complete!</h1>
-            <p class="alert alert-success">Money was transferred from account <strong><?= $accountFrom['account_number'] ?></strong> to <strong><?= $accountTo['account_number'] ?></strong> for the sum of <strong><?= money_format('%.2n', $amount) ?></strong>.</p>
+            <p class="alert alert-success">Money was transferred from account <strong><?= $accountFrom['account_number'] ?></strong> to <strong><?= $accountTo['account_number'] ?></strong> for the sum of <strong>$<?= numfmt_format_currency($format, $amount, 'JMD') ?></strong>.</p>
             <a href="csrf.php" class="btn btn-primary">Transfer more money!</a>
         </div>
     </body>
